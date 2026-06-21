@@ -3,139 +3,139 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اقتراحات شارة الاتصال</title>
+<title>اقتراحات شارات الاتصال</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Cairo', sans-serif; background: #0f172a; color: #fff; padding: 40px 20px; direction: rtl; }
-  h1 { text-align: center; margin-bottom: 10px; font-size: 22px; color: #94a3b8; }
-  p { text-align: center; color: #64748b; margin-bottom: 40px; font-size: 14px; }
+  body { font-family: 'Cairo', sans-serif; background: #0f172a; color: #fff; padding: 30px 20px; direction: rtl; }
+  h1 { text-align: center; margin-bottom: 6px; font-size: 20px; color: #e2e8f0; }
+  .sub { text-align: center; color: #64748b; margin-bottom: 30px; font-size: 13px; }
+  .option { background: #1e293b; border-radius: 14px; padding: 20px; margin-bottom: 18px; border: 1px solid #334155; }
+  .opt-label { font-size: 13px; color: #6366f1; font-weight: 900; margin-bottom: 14px; }
+  .header-sim { background: rgba(255,255,255,0.04); border-radius: 10px; padding: 10px 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .sep { width:1px; height:20px; background:#334155; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(2)} }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.5} }
 
-  .option { background: #1e293b; border-radius: 16px; padding: 24px; margin-bottom: 24px; border: 1px solid #334155; }
-  .option-title { font-size: 13px; color: #64748b; margin-bottom: 16px; }
-  .option-num { color: #6366f1; font-weight: 900; font-size: 15px; }
-  .header-sim { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 12px 20px; display: flex; justify-content: flex-start; align-items: center; gap: 12px; }
-  .label { font-size: 11px; color: #64748b; margin-left: 20px; }
+  /* --- مكونات مشتركة --- */
+  .pill { display:flex;align-items:center;gap:6px;padding:5px 11px;border-radius:20px;font-size:12px;font-weight:700; }
 
-  /* ① نقطة نابضة */
-  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.8)} }
-  .badge-1-on { display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);font-size:12px;font-weight:700;color:#10b981; }
-  .badge-1-on .dot { width:8px;height:8px;border-radius:50%;background:#10b981;animation:pulse 1.8s infinite; }
-  .badge-1-off { display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;background:rgba(100,116,139,0.1);border:1px solid rgba(100,116,139,0.2);font-size:12px;font-weight:700;color:#64748b; }
-  .badge-1-off .dot { width:8px;height:8px;border-radius:50%;background:#64748b; }
+  /* LOCAL variants */
+  .local-green { background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);color:#10b981; }
+  .local-dot { width:8px;height:8px;border-radius:50%;background:#10b981; }
+  .local-lock { font-size:14px; }
 
-  /* ② واي فاي فقط */
-  .badge-2-on { padding:6px 10px;border-radius:20px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.2);display:flex;align-items:center; }
-  .badge-2-off { padding:6px 10px;border-radius:20px;background:rgba(100,116,139,0.08);border:1px solid rgba(100,116,139,0.15);display:flex;align-items:center; }
-
-  /* ③ شارة سحابة + نص */
-  .badge-3-on { display:flex;align-items:center;gap:7px;padding:6px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(6,182,212,0.1));border:1px solid rgba(16,185,129,0.3);font-size:12px;font-weight:900;color:#10b981; }
-  .badge-3-off { display:flex;align-items:center;gap:7px;padding:6px 14px;border-radius:10px;background:rgba(100,116,139,0.08);border:1px solid rgba(100,116,139,0.2);font-size:12px;font-weight:900;color:#64748b; }
-
-  /* ④ سحابة فقط */
-  .badge-4-on { padding:5px 10px;border-radius:50%;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;justify-content:center;cursor:pointer; }
-  .badge-4-off { padding:5px 10px;border-radius:50%;background:rgba(100,116,139,0.1);border:1px solid rgba(100,116,139,0.2);display:flex;align-items:center;justify-content:center;cursor:pointer; }
-
-  /* ⑤ أشرطة الإشارة */
-  .signal { display:flex;align-items:flex-end;gap:2px;padding:6px 10px; }
-  .bar { width:5px;border-radius:2px; }
-  .bar.on { background:#10b981; }
-  .bar.off { background:#334155; }
-
-  /* ⑥ زر مستطيل */
-  .badge-6-on { display:flex;align-items:center;gap:6px;padding:5px 14px;border-radius:8px;background:#10b981;font-size:11px;font-weight:900;color:#fff; }
-  .badge-6-off { display:flex;align-items:center;gap:6px;padding:5px 14px;border-radius:8px;background:#475569;font-size:11px;font-weight:900;color:#cbd5e1; }
-
-  .row { display:flex;align-items:center;gap:20px;flex-wrap:wrap; }
-  .vs { color:#475569;font-size:12px; }
+  /* CLOUD variants */
+  .cloud-green { background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);color:#818cf8; }
+  .cloud-gray  { background:rgba(100,116,139,0.08);border:1px solid rgba(100,116,139,0.2);color:#64748b; }
+  .cloud-dot-on  { width:8px;height:8px;border-radius:50%;background:#818cf8;animation:pulse 1.8s infinite; }
+  .cloud-dot-off { width:8px;height:8px;border-radius:50%;background:#64748b; }
 </style>
 </head>
 <body>
 
-<h1>اقتراحات شارة الاتصال في الهيدر</h1>
-<p>الجانب الأيسر = متصل بالسحابة &nbsp;|&nbsp; الجانب الأيمن = غير متصل</p>
+<h1>اقتراحات شارات الاتصال — الهيدر</h1>
+<div class="sub">كل خيار يعرض: الاتصال المحلي + الاتصال السحابي (متصل / غير متصل)</div>
 
-<!-- ① -->
+<!-- ① نقطة + نص -->
 <div class="option">
-  <div class="option-title"><span class="option-num">① نقطة نابضة + نص</span></div>
+  <div class="opt-label">① نقطة نابضة + نص — متصل</div>
   <div class="header-sim">
-    <div class="badge-1-on"><div class="dot"></div>آمن ومتصل</div>
-    <span class="vs">←→</span>
-    <div class="badge-1-off"><div class="dot"></div>غير متصل</div>
+    <div class="pill local-green"><div class="local-dot"></div>محلي آمن</div>
+    <div class="sep"></div>
+    <div class="pill cloud-green"><div class="cloud-dot-on"></div>سحابي نشط</div>
+  </div>
+  <br>
+  <div class="opt-label">① نقطة + نص — غير متصل سحابياً</div>
+  <div class="header-sim">
+    <div class="pill local-green"><div class="local-dot"></div>محلي آمن</div>
+    <div class="sep"></div>
+    <div class="pill cloud-gray"><div class="cloud-dot-off"></div>غير متصل</div>
   </div>
 </div>
 
-<!-- ② -->
+<!-- ② أيقونتان فقط -->
 <div class="option">
-  <div class="option-title"><span class="option-num">② أيقونة واي فاي فقط (الحالي)</span></div>
+  <div class="opt-label">② أيقونتان فقط (قفل + واي فاي) — مع tooltip</div>
   <div class="header-sim">
-    <div class="badge-2-on">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+    <!-- local = lock -->
+    <div title="اتصال محلي آمن" style="padding:5px 9px;border-radius:50%;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);cursor:pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     </div>
-    <span class="vs">←→</span>
-    <div class="badge-2-off">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+    <div class="sep"></div>
+    <!-- cloud = wifi green -->
+    <div title="سحابي نشط" style="padding:5px 9px;border-radius:50%;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);cursor:pointer;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
     </div>
   </div>
-</div>
-
-<!-- ③ -->
-<div class="option">
-  <div class="option-title"><span class="option-num">③ سحابة + نص داخل شارة</span></div>
+  <br>
   <div class="header-sim">
-    <div class="badge-3-on">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#10b981"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-      سحابي نشط
+    <div title="اتصال محلي آمن" style="padding:5px 9px;border-radius:50%;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
     </div>
-    <span class="vs">←→</span>
-    <div class="badge-3-off">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#64748b"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-      غير متصل
-    </div>
-  </div>
-</div>
-
-<!-- ④ -->
-<div class="option">
-  <div class="option-title"><span class="option-num">④ أيقونة سحابة فقط (hover = tooltip)</span></div>
-  <div class="header-sim">
-    <div class="badge-4-on" title="متصل بالسحابة">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#10b981"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
-    </div>
-    <span class="vs">←→</span>
-    <div class="badge-4-off" title="غير متصل">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="#64748b"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+    <div class="sep"></div>
+    <!-- cloud = wifi gray (offline) -->
+    <div title="غير متصل بالسحابة" style="padding:5px 9px;border-radius:50%;background:rgba(100,116,139,0.08);border:1px solid rgba(100,116,139,0.2);">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.5" stroke-linecap="round"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.56 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
     </div>
   </div>
 </div>
 
-<!-- ⑤ -->
+<!-- ③ شارة كاملة مع نص -->
 <div class="option">
-  <div class="option-title"><span class="option-num">⑤ أشرطة إشارة الشبكة</span></div>
+  <div class="opt-label">③ شارة كاملة — أيقونة + نص مختصر</div>
   <div class="header-sim">
-    <div class="signal">
-      <div class="bar on" style="height:6px;"></div>
-      <div class="bar on" style="height:10px;"></div>
-      <div class="bar on" style="height:14px;"></div>
-      <div class="bar on" style="height:18px;"></div>
+    <div class="pill" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);color:#10b981;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      محلي
     </div>
-    <span class="vs">←→</span>
-    <div class="signal">
-      <div class="bar on" style="height:6px;"></div>
-      <div class="bar off" style="height:10px;"></div>
-      <div class="bar off" style="height:14px;"></div>
-      <div class="bar off" style="height:18px;"></div>
+    <div class="sep"></div>
+    <div class="pill" style="background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.25);color:#818cf8;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#818cf8"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+      سحابي ✓
+    </div>
+  </div>
+  <br>
+  <div class="header-sim">
+    <div class="pill" style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);color:#10b981;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      محلي
+    </div>
+    <div class="sep"></div>
+    <div class="pill cloud-gray">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="#64748b"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+      سحابي ✗
     </div>
   </div>
 </div>
 
-<!-- ⑥ -->
+<!-- ④ أشرطة -->
 <div class="option">
-  <div class="option-title"><span class="option-num">⑥ زر مستطيل ملون</span></div>
+  <div class="opt-label">④ أشرطة الإشارة (سحابي) + قفل (محلي)</div>
   <div class="header-sim">
-    <div class="badge-6-on">☁️ متصل</div>
-    <span class="vs">←→</span>
-    <div class="badge-6-off">☁️ غير متصل</div>
+    <div title="محلي آمن" style="padding:5px 9px;border-radius:8px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <div class="sep"></div>
+    <div style="display:flex;align-items:flex-end;gap:3px;padding:5px 9px;border-radius:8px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);">
+      <div style="width:4px;height:6px;border-radius:2px;background:#818cf8;"></div>
+      <div style="width:4px;height:10px;border-radius:2px;background:#818cf8;"></div>
+      <div style="width:4px;height:14px;border-radius:2px;background:#818cf8;"></div>
+      <div style="width:4px;height:18px;border-radius:2px;background:#818cf8;"></div>
+    </div>
+  </div>
+  <br>
+  <div class="header-sim">
+    <div style="padding:5px 9px;border-radius:8px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.3);display:flex;align-items:center;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <div class="sep"></div>
+    <div style="display:flex;align-items:flex-end;gap:3px;padding:5px 9px;border-radius:8px;background:rgba(100,116,139,0.08);border:1px solid rgba(100,116,139,0.2);">
+      <div style="width:4px;height:6px;border-radius:2px;background:#64748b;"></div>
+      <div style="width:4px;height:10px;border-radius:2px;background:#334155;"></div>
+      <div style="width:4px;height:14px;border-radius:2px;background:#334155;"></div>
+      <div style="width:4px;height:18px;border-radius:2px;background:#334155;"></div>
+    </div>
   </div>
 </div>
 
