@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل التثبيت والتفعيل — أصول العقاري</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+
+  :root {
+    --primary:   #1e40af;
+    --accent:    #0ea5e9;
+    --gold:      #f59e0b;
+    --dark:      #0f172a;
+    --surface:   #1e293b;
+    --light:     #f8fafc;
+    --text:      #334155;
+    --muted:     #64748b;
+    --success:   #10b981;
+    --warning:   #f59e0b;
+    --danger:    #ef4444;
+    --radius:    12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: #f1f5f9;
+    color: var(--text);
+    line-height: 1.8;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: linear-gradient(135deg, var(--dark) 0%, #1e3a5f 50%, var(--primary) 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .cover-logo {
+    width: 140px;
+    height: 140px;
+    border-radius: 32px;
+    margin: 0 auto 30px;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    border: 3px solid rgba(255,255,255,0.25);
+  }
+  .cover-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cover h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+  .cover .subtitle {
+    font-size: 20px;
+    opacity: 0.85;
+    margin-bottom: 40px;
+  }
+  .cover-badges {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .badge {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    backdrop-filter: blur(10px);
+  }
+  .badge span { margin-left: 6px; }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    background: white;
+    border-radius: var(--radius);
+    margin-bottom: 32px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .section-header {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .section-header .icon {
+    width: 44px;
+    height: 44px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+  .section-header h2 { font-size: 22px; font-weight: 700; }
+  .section-body { padding: 28px; }
+
+  /* ── STEPS ── */
+  .steps { list-style: none; }
+  .steps li {
+    display: flex;
+    gap: 18px;
+    margin-bottom: 24px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-content h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .step-content p  { color: var(--muted); font-size: 14px; }
+
+  /* ── TABLE ── */
+  table { width: 100%; border-collapse: collapse; }
+  th {
+    background: var(--dark);
+    color: white;
+    padding: 12px 16px;
+    text-align: right;
+    font-size: 14px;
+  }
+  td { padding: 12px 16px; font-size: 14px; border-bottom: 1px solid #e2e8f0; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f8fafc; }
+
+  /* ── ALERT BOX ── */
+  .alert {
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .alert-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .alert-info    { background: #eff6ff; border-right: 4px solid var(--accent); }
+  .alert-warning { background: #fffbeb; border-right: 4px solid var(--warning); }
+  .alert-success { background: #f0fdf4; border-right: 4px solid var(--success); }
+  .alert-danger  { background: #fef2f2; border-right: 4px solid var(--danger); }
+  .alert p { font-size: 14px; }
+
+  /* ── SCREENSHOT ── */
+  .screenshot-box {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    margin: 20px 0;
+    border: 1px solid #e2e8f0;
+  }
+  .screenshot-box img { width: 100%; display: block; }
+  .screenshot-caption {
+    background: var(--surface);
+    color: #94a3b8;
+    padding: 10px 16px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* ── TWO SCREENSHOTS SIDE BY SIDE ── */
+  .screenshots-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  /* ── FEATURES GRID ── */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 16px 0;
+  }
+  .feature-card {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 20px 16px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+  }
+  .feature-card .emoji { font-size: 36px; margin-bottom: 10px; }
+  .feature-card h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .feature-card p  { font-size: 12px; color: var(--muted); }
+
+  /* ── FAQ ── */
+  .faq-item {
+    border-bottom: 1px solid #e2e8f0;
+    padding: 18px 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-weight: 700; color: var(--primary); margin-bottom: 8px; font-size: 15px; }
+  .faq-a { color: var(--text); font-size: 14px; }
+
+  /* ── CONTACT ── */
+  .contact-card {
+    background: linear-gradient(135deg, var(--dark), var(--surface));
+    color: white;
+    border-radius: var(--radius);
+    padding: 32px;
+    text-align: center;
+    margin-top: 32px;
+  }
+  .contact-card h3 { font-size: 24px; margin-bottom: 20px; }
+  .contact-items { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .contact-item {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 20px 28px;
+    min-width: 160px;
+  }
+  .contact-item .ci-icon { font-size: 32px; margin-bottom: 8px; }
+  .contact-item .ci-label { font-size: 12px; opacity: 0.7; margin-bottom: 4px; }
+  .contact-item .ci-value { font-size: 16px; font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    padding: 32px 20px;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 40px;
+  }
+
+  @media print {
+    body { background: white; }
+    .section { box-shadow: none; border: 1px solid #e2e8f0; }
+    .cover { page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ COVER ══════════════════ -->
+<div class="cover">
+  <div class="cover-logo"><img src="public/logo.png" alt="أصول العقاري"></div>
+  <h1>أصول العقاري</h1>
+  <div class="subtitle">نظام إدارة العقارات والأملاك الاحترافي</div>
+  <hr style="border-color:rgba(255,255,255,0.2);margin:30px auto;width:200px;">
+  <div style="font-size:28px;font-weight:700;margin-bottom:8px;">دليل التثبيت والتفعيل</div>
+  <div style="opacity:0.7;font-size:16px;">الإصدار 1.1.94 — يونيو 2026</div>
+  <div class="cover-badges">
+    <div class="badge">🖥️ <span>Windows 10 / 11</span></div>
+    <div class="badge">🔒 <span>ترخيص آمن</span></div>
+    <div class="badge">☁️ <span>تحديث تلقائي</span></div>
+    <div class="badge">💾 <span>نسخ احتياطي</span></div>
+  </div>
+
+
+</div>
+
+<div class="container">
+
+  <!-- ══════════════════ SECTION 1: REQUIREMENTS ══════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">⚙️</div>
+      <h2>متطلبات التشغيل</h2>
+    </div>
+    <div class="section-body">
+      <table>
+        <tr><th>المتطلب</th><th>الحد الأدنى</th><th>الموصى به</th></tr>
+        <tr><td>نظام التشغيل</td><td>Windows 10 (64-bit)</td><td>Windows 11</td></tr>
+        <tr><td>المعالج</td><td>Intel Core i3</td><td>Intel Core i5 أو أحدث</td></tr>
+        <tr><td>الذاكرة العشوائية</td><td>4 GB RAM</td><td>8 GB RAM</td></tr>
+        <tr><td>مساحة القرص</td><td>500 MB</td><td>2 GB (للبيانات)</td></tr>
+        <tr><td>الإنترنت</td><td>مطلوب عند التشغيل الأول</td><td>اتصال دائم للمزامنة</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ══════════════════ SECTION 2: INSTALLATION ══════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">📦</div>
+      <h2>خطوات التثبيت</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="alert alert-info">
+        <div class="alert-icon">💡</div>
+        <div><p>يأتي البرنامج بنسختين: <strong>المثبّت الكامل</strong> (موصى به) أو <strong>النسخة المحمولة</strong> (بدون تثبيت).</p></div>
+      </div>
+
+      <ul class="steps">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>شغّل ملف التثبيت</h3>
+            <p>انقر نقراً مزدوجاً على <strong>OsoulRealEstate-Setup.exe</strong></p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>اقبل صلاحيات Windows</h3>
+            <p>اضغط "نعم" عند ظهور نافذة التحكم في حساب المستخدم</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>اتبع خطوات التثبيت</h3>
+            <p>اضغط "التالي" حتى اكتمال التثبيت ثم اضغط "إنهاء"</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h3>يفتح البرنامج تلقائياً</h3>
+            <p>ستظهر شاشة تسجيل الدخول وبدء فترة التجربة المجانية</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="screenshot-box">
+        <img src="guide_screenshots/01_login.png" alt="شاشة تسجيل الدخول">
+        <div class="screenshot-caption">📸 شاشة تسجيل الدخول — بيانات الدخول الافتراضية: admin / admin</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ SECTION 3: TRIAL ══════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">⏱️</div>
+      <h2>فترة التجربة المجانية — 15 يوماً</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="alert alert-success">
+        <div class="alert-icon">✅</div>
+        <div><p>جميع ميزات البرنامج متاحة بالكامل خلال فترة التجربة بدون أي قيود.</p></div>
+      </div>
+
+      <ul class="steps">
+        <li>
+          <div class="step-num">✓</div>
+          <div class="step-content">
+            <h3>تبدأ تلقائياً من أول تشغيل</h3>
+            <p>لا تحتاج لأي إجراء — البرنامج يحتسب الأيام من اللحظة الأولى</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">✓</div>
+          <div class="step-content">
+            <h3>محفوظة على السحابة بشكل آمن</h3>
+            <p>فترة التجربة مرتبطة بجهازك ومحفوظة على خوادمنا — لا يمكن تمديدها أو التحايل عليها</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">✓</div>
+          <div class="step-content">
+            <h3>عداد واضح للأيام المتبقية</h3>
+            <p>يظهر العداد في شاشة تسجيل الدخول عند كل تشغيل</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="alert alert-warning">
+        <div class="alert-icon">⚠️</div>
+        <div><p><strong>تنبيه:</strong> بعد انتهاء 15 يوماً يتوقف البرنامج حتى تتم عملية التفعيل. تواصل معنا قبل انتهاء الفترة لضمان الاستمرارية.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ SECTION 4: DASHBOARD ══════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">📊</div>
+      <h2>لوحة التحكم الرئيسية</h2>
+    </div>
+    <div class="section-body">
+
+      <p style="margin-bottom:16px;color:var(--muted);">بعد تسجيل الدخول تظهر لوحة التحكم الشاملة التي تعرض جميع مؤشرات الأداء الرئيسية دفعة واحدة:</p>
+
+      <div class="screenshot-box">
+        <img src="guide_screenshots/02_dash1.png" alt="لوحة التحكم الرئيسية">
+        <div class="screenshot-caption">📸 لوحة التحكم — الإحصاءات المالية والتشغيلية في مكان واحد</div>
+      </div>
+
+      <div class="features-grid" style="margin-top:24px;">
+        <div class="feature-card">
+          <div class="emoji">💰</div>
+          <h4>تحصيل الإيجارات</h4>
+          <p>متابعة المحصّل والمتبقي لحظة بلحظة</p>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">🏠</div>
+          <h4>إجمالي الوحدات</h4>
+          <p>عدد الوحدات والعقود النشطة</p>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">⚡</div>
+          <h4>إجراءات سريعة</h4>
+          <p>إنشاء عقد أو سند قبض بنقرة واحدة</p>
+        </div>
+      </div>
+
+      <div class="screenshot-box">
+        <img src="guide_screenshots/03_dash2.png" alt="لوحة التحكم التفصيلية">
+        <div class="screenshot-caption">📸 لوحة التحكم — تفاصيل إضافية وتقارير سريعة</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ SECTION 5: FEATURES ══════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">🗂️</div>
+      <h2>أقسام البرنامج الرئيسية</h2>
+    </div>
+    <div class="section-body">
+
+      <!-- Owners -->
+      <h3 style="margin-bottom:12px;font-size:18px;color:var(--primary);">👥 سجل الملاك</h3>
+      <p style="color:var(--muted);margin-bottom:16px;font-size:14px;">إدارة بيانات ملاك العقارات مع عرض تفصيلي للرصيد الجاري وعدد العقارات لكل مالك.</p>
+
+      <div class="screenshot-box">
+        <img src="guide_screenshots/04_owners.png" alt="صفحة الملاك">
+        <div class="screenshot-caption">📸 سجل الملاك — إضافة وتعديل وعرض كشف حساب كل مالك</div>
+      </div>
+
+      <!-- Contracts -->
+      <h3 style="margin:24px 0 12px;font-size:18px;color:var(--primary);">📄 مركز العقود والتحصيل</h3>
+      <p style="color:var(--muted);margin-bottom:16px;font-size:14px;">متابعة جميع عقود الإيجار النشطة مع تفاصيل الدفعات والمبالغ المحصّلة والمتبقية.</p>
+
+      <div class="screenshots-grid">
+        <div class="screenshot-box" style="margin:0;">
+          <img src="guide_screenshots/05_contracts1.png" alt="العقود النشطة">
+          <div class="screenshot-caption">📸 العقود النشطة</div>
+        </div>
+        <div class="screenshot-box" style="margin:0;">
+          <img src="guide_screenshots/06_contracts2.png" alt="تفاصيل العقد">
+          <div class="screenshot-caption">📸 تفاصيل الدفعات</div>
+        </div>
+      </div>
+
+      <!-- Reports -->
+      <h3 style="margin:24px 0 12px;font-size:18px;color:var(--primary);">📈 التقارير</h3>
+      <p style="color:var(--muted);margin-bottom:16px;font-size:14px;">تقارير مالية وتشغيلية شاملة مع إمكانية التصدير لـ Excel وPDF.</p>
+
+      <div class="screenshot-box">
+        <img src="guide_screenshots/07_reports.png" alt="صفحة التقارير">
+        <div class="screenshot-caption">📸 التقارير — تقارير مالية تفصيلية قابلة للتصدير</div>
+      </div>
+
+      <!-- Settings -->
+      <h3 style="margin:24px 0 12px;font-size:18px;color:var(--primary);">⚙️ الإعدادات</h3>
+      <div class="screenshot-box">
+        <img src="guide_screenshots/08_settings.png" alt="صفحة الإعدادات">
+        <div class="screenshot-caption">📸 الإعدادات — تخصيص البرنامج وإدارة المستخدمين</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ SECTION 6: ACTIVATION ══════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">🔑</div>
+      <h2>تفعيل البرنامج</h2>
+    </div>
+    <div class="section-body">
+
+      <ul class="steps">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h3>احصل على رقم الجهاز (HWID)</h3>
+            <p>يظهر رقم الجهاز في شاشة التفعيل — انسخه وأرسله للمورد</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h3>تواصل مع المورد</h3>
+            <p>أرسل رقم الجهاز عبر واتساب واستلم كود التفعيل خلال دقائق</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h3>أدخل كود التفعيل</h3>
+            <p>في شاشة تسجيل الدخول ← اضغط "تفعيل البرنامج" ← الصق الكود ← اضغط تفعيل</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">✓</div>
+          <div class="step-content">
+            <h3>تم التفعيل!</h3>
+            <p>ستظهر رسالة "تم التفعيل بنجاح" وتعمل جميع الميزات بدون قيود</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="alert alert-info">
+        <div class="alert-icon">🔒</div>
+        <div><p>كود التفعيل مرتبط بجهازك تحديداً ولا يعمل على أجهزة أخرى. لتغيير الجهاز تواصل مع المورد.</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ SECTION 7: UPDATES & BACKUP ══════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">🔄</div>
+      <h2>التحديثات والنسخ الاحتياطي</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="emoji">🚀</div>
+          <h4>تحديث تلقائي</h4>
+          <p>البرنامج يتحديث تلقائياً عند توفر إصدار جديد بدون أي تدخل منك</p>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">💾</div>
+          <h4>نسخ احتياطي تلقائي</h4>
+          <p>نسخ احتياطية تلقائية عند كل تشغيل وكل ساعتين أثناء العمل</p>
+        </div>
+        <div class="feature-card">
+          <div class="emoji">🛡️</div>
+          <h4>بيانات آمنة</h4>
+          <p>بياناتك محفوظة على جهازك ولا تُرسل لأي خادم خارجي</p>
+        </div>
+      </div>
+
+      <div class="alert alert-success">
+        <div class="alert-icon">✅</div>
+        <div><p>موقع النسخ الاحتياطية: <strong>المستندات \ OsoulRealEstate_AutoBackups</strong></p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ SECTION 8: FAQ ══════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <div class="icon">❓</div>
+      <h2>أسئلة شائعة</h2>
+    </div>
+    <div class="section-body">
+
+      <div class="faq-item">
+        <div class="faq-q">❓ البرنامج لا يفتح بعد التثبيت</div>
+        <div class="faq-a">انقر بزر الفأرة الأيمن على أيقونة البرنامج واختر "تشغيل كمسؤول". تأكد من أن نظام التشغيل Windows 10 أو 11 (64-bit).</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ ظهرت رسالة "انتهت فترة التجربة"</div>
+        <div class="faq-a">تواصل مع المورد للحصول على كود التفعيل. البرنامج سيعمل بشكل طبيعي بعد إدخال الكود.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ الكود الذي أدخلته "غير صحيح"</div>
+        <div class="faq-a">تأكد من نسخ الكود كاملاً بدون مسافات زائدة. الكود مرتبط بجهازك تحديداً — إذا غيّرت الجهاز تواصل مع المورد لكود جديد.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ التحديث التلقائي لا يعمل</div>
+        <div class="faq-a">تأكد من اتصال الجهاز بالإنترنت. إذا كان برنامج الحماية (Antivirus) يحجب البرنامج، أضفه للاستثناءات.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ هل يمكن تشغيل البرنامج على أكثر من جهاز؟</div>
+        <div class="faq-a">كل رخصة مرتبطة بجهاز واحد. للتشغيل على أجهزة متعددة يلزم الحصول على رخصة إضافية لكل جهاز.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">❓ ماذا يحدث لبياناتي عند التحديث؟</div>
+        <div class="faq-a">بياناتك محفوظة تماماً بعد كل تحديث. البرنامج يأخذ نسخة احتياطية تلقائياً قبل أي تحديث.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════ DOWNLOAD ══════════════════ -->
+  <div style="text-align:center;margin-bottom:24px;">
+    <a href="https://github.com/mohamedmawgoud/osoul-updates/releases/latest/download/OsoulRealEstate-Setup.exe"
+       download
+       style="display:inline-flex;align-items:center;gap:14px;
+              background:linear-gradient(135deg,#1e40af,#0ea5e9);
+              color:white;font-family:'Cairo',sans-serif;font-weight:700;font-size:18px;
+              padding:16px 40px;border-radius:14px;text-decoration:none;
+              box-shadow:0 6px 24px rgba(14,165,233,0.4);">
+      <span style="font-size:26px;">⬇️</span>
+      <div style="text-align:right;">
+        <div>تحميل البرنامج مجاناً</div>
+        <div style="font-size:12px;opacity:0.8;font-weight:400;">OsoulRealEstate-Setup.exe &nbsp;•&nbsp; الإصدار 1.1.94 &nbsp;•&nbsp; Windows 64-bit</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ══════════════════ CONTACT ══════════════════ -->
+  <div class="contact-card">
+    <h3>📞 تواصل معنا للدعم الفني</h3>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="ci-icon">💬</div>
+        <div class="ci-label">واتساب</div>
+        <div class="ci-value">0556973060</div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">🕐</div>
+        <div class="ci-label">أوقات الدعم</div>
+        <div class="ci-value">السبت – الخميس</div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">⚡</div>
+        <div class="ci-label">وقت الاستجابة</div>
+        <div class="ci-value">خلال ساعة</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  برنامج أصول العقاري — نظام إدارة العقارات والأملاك الاحترافي<br>
+  جميع الحقوق محفوظة © 2026 | الإصدار 1.1.94
+</div>
+
+</body>
+</html>
