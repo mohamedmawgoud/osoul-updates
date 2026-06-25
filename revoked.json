@@ -1,3 +1,9 @@
 {
-  "revoked": []
+  "revoked": [
+    {
+      "hwid": "UNKNOWN-HWID-000",
+      "name": "جهاز البيت",
+      "revokedAt": "2026-06-25"
+    }
+  ]
 }
